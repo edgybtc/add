@@ -78,7 +78,7 @@ echo "<br> <h3>Ucode is $ucode</h3>";
 
 
 
-$call="https://sheets.googleapis.com/v4/spreadsheets/".$spreadsheet."?includeGridData=true&ranges=".$collumn."%3A".$collumn."&key=".$api;
+$call="https://sheets.googleapis.com/v4/spreadsheets/".$spreadsheet."?includeGridData=true&ranges=".$collumn."%3A".$collumn.":500&key=".$api;
 $data=file_get_Contents($call);
 
 $dataArray = json_decode($data, true);
