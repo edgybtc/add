@@ -21,9 +21,10 @@ echo "<br>";
 VERIFICATION CODE: <input type="text" name="code"><br>
 
 Spreadsheet ID: <input type="text" name="spreadsheet"><br>
-Column(Eg: A,B,C,D etcetra): <input type="text" name="columntitle"><br>
-Column Number: <input type="text" name="columnnumber"><br>
+Column(Eg: A,B,C,D etcetra) of username column: <input type="text" name="columntitle"><br>
+Row Number: <input type="text" name="columnnumber"><br>
 Telegram group Invite link: <input type="text" name="group"><br>
+Ucode(optional): <input type="text" name="uc"><br>
 <input type="hidden" name="icode" value="<?php echo $icode;?>" /><br>
 <input type="submit">
 </form>

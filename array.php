@@ -7,14 +7,15 @@ $spreadsheet=$_POST["spreadsheet"];
 $collumn=$_POST["columntitle"];
 $ncol=$_POST["columnnumber"];
 $ch=$_POST["group"];
+$ucode=$_POST["uc"];
 
-
+if($ucode=NULL){
 $tlink="https://api.pwrtelegram.xyz/user".$icode."/completephonelogin?code=".$code;
 $fauth=file_get_Contents($tlink);
 $fathArray=json_decode($fauth);
 $fauthArray=(object)$fathArray;
 if($fauth!=NULL) $ucode=$fauthArray->result;
-else echo "<br>WRONG VERIFICATION CODE, LOGIN AGAIN FROM START<br>";
+else echo "<br>WRONG VERIFICATION CODE, LOGIN AGAIN FROM START<br>";}
 
 
 
@@ -71,7 +72,8 @@ else {break;}
 }//end of while
 $fstart=$start+2;
 
-echo "<br><h3> Please begin from $fstart column number</h3>";
+echo "<br><h3> Please begin from $fstart row number</h3>";
+echo "<br> <h3>Ucode is $ucode</h3>";
 }//end of function start
 
 
