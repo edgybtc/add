@@ -25,7 +25,7 @@ $k=$ncol-1;
 
 $ilink="https://api.pwrtelegram.xyz/user".$ucode."/channels.inviteToChannel?channel=".$ch."&users=";
 
-$ucode="535914201:oSeFRZrnLgDgWLQ2Jz1fx2JNyrgaL_04OY0e3HteJsw";
+
 
 function url_get_contents ($Url) {
     if (!function_exists('curl_init')){ 
