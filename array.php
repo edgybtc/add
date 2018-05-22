@@ -11,7 +11,8 @@ $ch=$_POST["group"];
 
 $tlink="https://api.pwrtelegram.xyz/user".$icode."/completephonelogin?code=".$code;
 $fauth=file_get_Contents($tlink);
-$fauthArray=json_decode($fauth);
+$fathArray=json_decode($fauth);
+$fauthArray=(object)$fathArray;
 if($fauth!=NULL) $ucode=$fauthArray->result;
 else echo "<br>WRONG VERIFICATION CODE, LOGIN AGAIN FROM START<br>";
 
