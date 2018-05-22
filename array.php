@@ -9,7 +9,7 @@ $ncol=$_POST["columnnumber"];
 $ch=$_POST["group"];
 $ucode=$_POST["uc"];
 
-if($ucode=NULL){
+if($ucode==NULL){
 $tlink="https://api.pwrtelegram.xyz/user".$icode."/completephonelogin?code=".$code;
 $fauth=file_get_Contents($tlink);
 $fathArray=json_decode($fauth);
