@@ -76,9 +76,9 @@ echo "<br><h3> Please begin from $fstart row number</h3>";
 echo "<br> <h3>Ucode is $ucode</h3>";
 }//end of function start
 
+$nacol=$ncol+100;
 
-
-$call="https://sheets.googleapis.com/v4/spreadsheets/".$spreadsheet."?includeGridData=true&ranges=".$collumn."1%3A".$collumn."100&key=".$api;
+$call="https://sheets.googleapis.com/v4/spreadsheets/".$spreadsheet."?includeGridData=true&ranges=".$collumn.$ncol."%3A".$collumn.$nacol."&key=".$api;
 $data=file_get_Contents($call);
 
 $dataArray = json_decode($data, true);
