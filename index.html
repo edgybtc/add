@@ -17,7 +17,7 @@ if (!$conn) {
 }
 
 $sql = 'SELECT * 
-		FROM transactions';
+		FROM global_deposits';
 		
 $query = mysqli_query($conn, $sql);
 
@@ -49,12 +49,12 @@ if (!$query) {
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.php">Bitlendobot</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="dashboard.php">Bitlendobot</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">
-		  Test</a>
+          <a class="nav-link" href="index.php">
+		  Log Out</a>
         </li>
       </ul>
     </nav>
@@ -162,17 +162,19 @@ $(document).ready(function() {
 } );
 </script>
 
-          <h2>Deposits</h2>
+          <h2>Global Deposits</h2>
           <div class="table-responsive">
             <table id="example" class="display">
 
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Chat ID</th>
-                  <th>Amount</th>
-                  <th>Currency</th>
-                 <th>Time</th>
+                  <th>BTC</th>
+                  <th>LTC</th>
+                  <th>BCH</th>
+				<th>ETH</th>
+
+                 <th>Date</th>
                 </tr>
               </thead>
               <tbody>
@@ -181,18 +183,23 @@ $(document).ready(function() {
 
 		while ($row = mysqli_fetch_array($query))
 		{
-			if($row['type']=='1'){
-				$k=floatval($row['amount']);
-				$k=$k/100000000;
+			
+				$btc=floatval($row['BTC'])/100000000;
+								$ltc=floatval($row['LTC'])/100000000;
+				$bch=floatval($row['BCH'])/100000000;
+				$eth=floatval($row['ETH'])/100000000;
+
+		
 			echo '<tr>
 					<td>'.$no.'</td>
-					<td>'.$row['chat_id'].'</td>
-					<td>'.$k.'</td>
-					<td>'. $row['currency'] . '</td>
-					<td>'.date('F d, Y', strtotime($row['time'])) .'</td>
+					<td>'.$btc.'</td>
+					<td>'.$ltc.'</td>
+					<td>'. $bch . '</td>
+					<td>'. $eth . '</td>
+					<td>'.$row['date'] .'</td>
 				</tr>';
 			
-			$no++;}
+			$no++;
 		}?>  
               
               </tbody>
